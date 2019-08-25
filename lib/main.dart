@@ -8,14 +8,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context){
 
     return MaterialApp(
-      title: 'first step',
-      home: Text(
-          '\n\n'
-       +  'Hello, '
-       +  'Flutter '
-       +  'World!!',
-      style: TextStyle(fontSize: 20)
-      )
+        title: 'first step',
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('brawldra'),
+            ),
+            body: Text(
+                'Hello, Flutter World!!',
+                style: TextStyle(fontSize: 20)
+            ),
+
+        ),
     );
   }
 }
