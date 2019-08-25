@@ -4,7 +4,7 @@ void main() => runApp(new MyApp() );
 
 class MyApp extends StatelessWidget {
   final title = "First App with Stateful";
-  final message = "statefulwidget";
+  //final message = "statefulwidget";
 
   @override
   Widget build(BuildContext context){
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'first step',
       home: new HomePage(
         title: this.title,
-        message: this.message
+        //message: this.message
       ),
     );
   }
@@ -22,34 +22,51 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget{
 
   final String title;
-  final String message;
+  //final String message;
 
-  HomePage({this.title, this.message}): super();
+  HomePage({this.title}): super();
 
   @override
   _HomePageState createState() => new _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>{
+class _HomePageState extends State<HomePage> {
+  String _message;
+
+  @override
+  void initState() {
+    super.initState();
+    _message = 'please press.';
+  }
+
+  void _setMessage(){
+    setState(() {
+      if(_message == 'please press.'){
+        _message = 'One more time please. \n\nI will reset.';
+      }
+      else{
+        _message = 'please press.';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context){
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-
       body: Text(
-        widget.message,
+        _message,
         style: TextStyle(fontSize: 20),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _setMessage,
+        tooltip: 'set message.',
+        child: Icon(Icons.star),
 
+      ),
     );
 
   }
 }
-
-
-
-
