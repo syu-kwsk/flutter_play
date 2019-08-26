@@ -30,19 +30,43 @@ class HomePage extends StatefulWidget{
   _HomePageState createState() => new _HomePageState();
 }
 
+class Data {
+  int _price;
+  String _name;
+
+  Data(this._name, this._price): super();
+
+
+  @override
+  String toString() {
+    return _name + ':' + _price.toString() + '円';
+  }
+}
+
 class _HomePageState extends State<HomePage> {
   String _message;
+  static final _data = [
+    Data('Apple', 200),
+    Data('Curry', 256),
+    Data('Gyudon', 373)
+  ];
+
+
+  Data _item;
 
   @override
   void initState() {
     super.initState();
     _message = 'please press.';
+    //_item = _data[0];
   }
 
   void _setMessage(){
     setState(() {
       if(_message == 'please press.'){
-        _message = 'One more time please. \n\nI will reset.';
+        _item = ( _data..shuffle() ).first;
+        _message = 'One more time please. \nI will reset.\n\n'
+                 + _item.toString();
       }
       else{
         _message = 'please press.';
@@ -57,7 +81,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Text(
-        _message,
+        _message + '\n\n',
         style: TextStyle(fontSize: 20),
       ),
       floatingActionButton: FloatingActionButton(
