@@ -25,8 +25,18 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.7.0
   flutter_test:
     sdk: flutter
+
+
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "asset/road_icon.png"
+  image_path_ios: "asset/road_icon.png"
 
 
 # For information on the generic Dart part of this file, see the
@@ -70,3 +80,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
