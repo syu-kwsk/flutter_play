@@ -11,6 +11,12 @@ class MyApp extends StatelessWidget {
 
     return new MaterialApp(
       title: 'first step',
+      theme: new ThemeData(
+        primarySwatch: Colors.red,
+        primaryColor: Colors.greenAccent,
+        accentColor: Colors.blue,
+        canvasColor: Colors.limeAccent,
+      ),
       home: new HomePage(
         title: this.title,
         //message: this.message
@@ -66,7 +72,7 @@ class _HomePageState extends State<HomePage> {
       if(_message == 'please press.'){
         _item = ( _data..shuffle() ).first;
         _message = 'One more time please. \nI will reset.\n\n'
-                 + _item.toString();
+            + _item.toString();
       }
       else{
         _message = 'please press.';
@@ -78,11 +84,20 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title,
+          style: TextStyle(fontSize: 20,
+              color: Colors.purpleAccent,
+              fontWeight: FontWeight.w700,
+              fontFamily: "Roboto"),
+        ),
       ),
       body: Text(
         _message + '\n\n',
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20,
+            color: Colors.red,
+            fontWeight: FontWeight.w700,
+            fontFamily: "Roboto"
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _setMessage,
