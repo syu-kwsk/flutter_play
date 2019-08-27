@@ -84,19 +84,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title,
-          style: TextStyle(fontSize: 20,
-              color: Colors.purpleAccent,
-              fontWeight: FontWeight.w700,
-              fontFamily: "Roboto"),
+        title: Center(
+          child: Text(widget.title,
+            style: TextStyle(fontSize: 20,
+                color: Colors.purpleAccent,
+                fontWeight: FontWeight.w700,
+                fontFamily: "Roboto"),
+          ),
         ),
       ),
-      body: Text(
-        _message + '\n\n',
-        style: TextStyle(fontSize: 20,
-            color: Colors.red,
-            fontWeight: FontWeight.w700,
-            fontFamily: "Roboto"
+      body:
+      Center(
+        child: Text(
+          _message + '\n\n',
+          style: TextStyle(fontSize: 20,
+              color: Colors.red,
+              fontWeight: FontWeight.w700,
+              fontFamily: "Roboto"
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
