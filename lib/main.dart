@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
       title: 'first step',
       theme: new ThemeData(
         primarySwatch: Colors.red,
-        primaryColor: Colors.greenAccent,
+        primaryColor: Colors.blueGrey,
         accentColor: Colors.blue,
-        canvasColor: Colors.limeAccent,
+        canvasColor: Colors.lightBlueAccent,
       ),
       home: new HomePage(
         title: this.title,
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Text(widget.title,
             style: TextStyle(fontSize: 20,
-                color: Colors.purpleAccent,
+                color: Colors.white,
                 fontWeight: FontWeight.w700,
                 fontFamily: "Roboto"),
           ),
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
         child: Text(
           _message + '\n\n',
           style: TextStyle(fontSize: 20,
-              color: Colors.red,
+              color: Colors.white,
               fontWeight: FontWeight.w700,
               fontFamily: "Roboto"
           ),
