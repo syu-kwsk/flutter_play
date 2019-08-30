@@ -44,11 +44,22 @@ class _GamePageState extends State<GamePage> {
       color: Colors.red,
       width: 200.0,
       height: 200.0,
-      child: Text(
-        "Stop",
-        style: TextStyle(fontSize: 18.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Stop",
+              style: TextStyle(fontSize: 18.0),
+            ),
+            Text(
+              "Stop2",
+              style: TextStyle(fontSize: 18.0),
+            ),
+          ]
       ),
     ),
+
     Container(
       color: Colors.yellow,
       width: 200.0,
