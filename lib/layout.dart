@@ -53,17 +53,60 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       body:
-      Container(
-        child: Text(
-          'Start Layout\n\n',
-          style: TextStyle(fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-              fontFamily: "Roboto"
-          ),
-        ),
-        padding: const EdgeInsets.all(1.0),
-        alignment: Alignment(0.0, -0.5),
+      Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children:<Widget>[
+            Row(mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children:<Widget>[
+
+                  Text(
+                    'Start Layout1|\n\n',
+                    style: TextStyle(fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Roboto"
+                    ),
+                  ),
+                  Text(
+                    'Layout2|\n\n',
+                    style: TextStyle(fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Roboto"
+                    ),
+                  ),
+                  Text(
+                    'Layout3|\n\n',
+                    style: TextStyle(fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: "Roboto"
+                    ),
+                  ),
+                ]
+            ),
+            Text(
+              'Center Layout\n\n',
+              style: TextStyle(fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Roboto"
+              ),
+            ),
+            Text(
+              'End Layout\n\n',
+              style: TextStyle(fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Roboto"
+              ),
+            ),
+          ]
+
       ),
 //      floatingActionButton: FloatingActionButton(
 //        onPressed: _setMessage,
