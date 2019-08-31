@@ -45,8 +45,8 @@ class _GamePageState extends State<GamePage> {
       width: 200.0,
       height: 200.0,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
               "Stop",
@@ -81,6 +81,56 @@ class _GamePageState extends State<GamePage> {
 
   ];
 
+  var _gridData = <Widget>[
+    Container(
+      color: Colors.red,
+      child:
+      Text(
+        "1",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+
+    Container(
+      color: Colors.yellow,
+      child: Text(
+        "2",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+    Container(
+      color: Colors.green,
+      child: Text(
+        "3",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+    Container(
+      color: Colors.white,
+      child:
+      Text(
+        "4",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+
+    Container(
+      color: Colors.cyanAccent,
+      child: Text(
+        "5",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+    Container(
+      color: Colors.purple,
+      child: Text(
+        "6",
+        style: TextStyle(fontSize: 18.0),
+      ),
+    ),
+
+  ];
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -95,10 +145,17 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       body:
-      Stack(
-        children: _stackData,
-        alignment: Alignment.center,
+      GridView.count(
+        crossAxisCount: 3,
+        mainAxisSpacing: 10.0,
+        crossAxisSpacing: 10.0,
+        padding: EdgeInsets.all(10.0),
+        children: _gridData,
       ),
+//      Stack(
+//        children: _stackData,
+//        alignment: Alignment.center,
+//      ),
       floatingActionButton: FloatingActionButton(
         onPressed: fabPressed,
         tooltip: 'set message.',
