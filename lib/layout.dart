@@ -145,11 +145,11 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       body:
-      GridView.count(
-        crossAxisCount: 3,
+      GridView.extent(
+        maxCrossAxisExtent: 200.0,
         mainAxisSpacing: 10.0,
         crossAxisSpacing: 10.0,
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         children: _gridData,
       ),
 //      Stack(
