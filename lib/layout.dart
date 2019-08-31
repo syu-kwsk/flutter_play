@@ -133,9 +133,11 @@ class _GamePageState extends State<GamePage> {
                             color: Colors.white30,
                             child: Align(
                               alignment: Alignment.center,
-                              child: Text(
-                                '山札',
-                                style: TextStyle(fontSize: 32.0),
+                              child: RaisedButton(
+                                onPressed: cardPressed,
+                                  child: Text(
+                                    '山札',
+                                    style: TextStyle(fontSize: 32.0),)
                               ),
                             ),
                           ),
@@ -174,12 +176,15 @@ class _GamePageState extends State<GamePage> {
                         child: Padding(
                           padding: EdgeInsets.all(1.0),
                           child: Container(
-                            color: Colors.greenAccent,
+                            color: Colors.green,
                             child: Align(
                               alignment: Alignment.center,
-                              child: Text(
-                                '天才に聞く',
-                                style: TextStyle(fontSize: 22.0),
+                              child: RaisedButton(
+                                color: Colors.teal,
+                                  onPressed: geniusPressed,
+                                  child: Text(
+                                    '天才に聞く',
+                                    style: TextStyle(fontSize: 22.0),)
                               ),
                             ),
                           ),
@@ -200,6 +205,26 @@ class _GamePageState extends State<GamePage> {
 //        tooltip: 'set message.',
 //        child: Icon(Icons.star),
 
+    );
+  }
+
+  void cardPressed(){
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Text('Hit !!'),
+        content: Text('山札から一枚引きました'),
+      )
+    );
+  }
+
+  void geniusPressed(){
+    showDialog(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text('Help !!'),
+          content: Text('なにが聞きたいんだい？'),
+        )
     );
   }
 
