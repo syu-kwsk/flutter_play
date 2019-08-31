@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(new MyApp() );
 
 class MyApp extends StatelessWidget {
-  final title = "First layout";
+  final title = "ブラック・ジャック";
   //final message = "statefulwidget";
 
   @override
@@ -39,97 +39,6 @@ class GamePage extends StatefulWidget{
 
 class _GamePageState extends State<GamePage> {
 
-  var _stackData = <Widget>[
-    Container(
-      color: Colors.red,
-      width: 200.0,
-      height: 200.0,
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Stop",
-              style: TextStyle(fontSize: 18.0),
-            ),
-            Text(
-              "Stop2",
-              style: TextStyle(fontSize: 18.0),
-            ),
-          ]
-      ),
-    ),
-
-    Container(
-      color: Colors.yellow,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Carefully",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-    Container(
-      color: Colors.green,
-      width: 200.0,
-      height: 200.0,
-      child: Text(
-        "Go",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-
-  ];
-
-  var _gridData = <Widget>[
-    Container(
-      color: Colors.red,
-      child:
-      Text(
-        "1",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-
-    Container(
-      color: Colors.yellow,
-      child: Text(
-        "2",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-    Container(
-      color: Colors.green,
-      child: Text(
-        "3",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-    Container(
-      color: Colors.white,
-      child:
-      Text(
-        "4",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-
-    Container(
-      color: Colors.cyanAccent,
-      child: Text(
-        "5",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-    Container(
-      color: Colors.purple,
-      child: Text(
-        "6",
-        style: TextStyle(fontSize: 18.0),
-      ),
-    ),
-
-  ];
 
   @override
   Widget build(BuildContext context){
@@ -145,30 +54,154 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       body:
-      GridView.extent(
-        maxCrossAxisExtent: 200.0,
-        mainAxisSpacing: 10.0,
-        crossAxisSpacing: 10.0,
-        padding: const EdgeInsets.all(10.0),
-        children: _gridData,
-      ),
-//      Stack(
-//        children: _stackData,
-//        alignment: Alignment.center,
-//      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: fabPressed,
-        tooltip: 'set message.',
-        child: Icon(Icons.star),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Expanded(
+              child:
+              Container(
+                color: Colors.white,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Container(
+                          color: Colors.cyan,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              '相手の手札',
+                              style: TextStyle(fontSize: 32.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ) ,
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Container(
+                            color: Colors.red,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'スコア',
+                                style: TextStyle(fontSize: 32.0),
+                              ),
+                            ),
+                          ),
+                        )
+                    ) ,
 
+                  ],
+                ),
+              )
+          ),
+
+          Expanded(
+              child:
+              Container(
+                color: Colors.white,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Container(
+                          color: Colors.orange,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              '場',
+                              style: TextStyle(fontSize: 32.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ) ,
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Container(
+                            color: Colors.white30,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '山札',
+                                style: TextStyle(fontSize: 32.0),
+                              ),
+                            ),
+                          ),
+                        )
+                    ) ,
+
+                  ],
+                ),
+              )
+          ),
+          Expanded(
+              child:
+              Container(
+                color: Colors.white,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: EdgeInsets.all(1.0),
+                        child: Container(
+                          color: Colors.green,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              '自分の手札',
+                              style: TextStyle(fontSize: 32.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ) ,
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsets.all(1.0),
+                          child: Container(
+                            color: Colors.greenAccent,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '天才に聞く',
+                                style: TextStyle(fontSize: 22.0),
+                              ),
+                            ),
+                          ),
+                        )
+                    ) ,
+
+                  ],
+                ),
+              )
+          ),
+
+
+
+        ],
       ),
+//    floatingActionButton: FloatingActionButton(
+//        onPressed: fabPressed,
+//        tooltip: 'set message.',
+//        child: Icon(Icons.star),
+
     );
+  }
 
-  }
-  void fabPressed(){
-    setState(() {
-      _stackData.insert(0, _stackData.removeLast());
-    });
-  }
 }
 
