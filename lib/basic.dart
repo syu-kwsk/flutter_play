@@ -17,9 +17,8 @@ class TextArea extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return new MaterialApp(
-      title: 'textArea',
-      home: Padding(
+    return new
+       Padding(
         padding: EdgeInsets.all(this.padding),
         child: Container(
           color: this.backColor,
@@ -31,9 +30,9 @@ class TextArea extends StatelessWidget{
             ),
           ),
         ),
-      ),
-    );
+      );
   }
+
 }
 
 

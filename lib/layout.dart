@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'basic.dart';
 
 void main() => runApp(new MyApp() );
 
@@ -66,35 +67,48 @@ class _GamePageState extends State<GamePage> {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(1.0),
-                        child: Container(
-                          color: Colors.cyan,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '相手の手札',
-                              style: TextStyle(fontSize: 32.0),
-                            ),
-                          ),
-                        ),
+                      child: new TextArea(
+                        padding: 1.0,
+                        backColor: Colors.cyan,
+                        alignment: Alignment.center,
+                        content: '相手の手札',
                       ),
+
+//                      child: Padding(
+//                        padding: EdgeInsets.all(1.0),
+//                        child: Container(
+//                          color: Colors.cyan,
+//                          child: Align(
+//                            alignment: Alignment.center,
+//                            child: Text(
+//                              '相手の手札',
+//                              style: TextStyle(fontSize: 32.0),
+//                            ),
+//                          ),
+//                        ),
+//                      ),
                     ) ,
                     Expanded(
-                        flex: 1,
-                        child: Padding(
-                          padding: EdgeInsets.all(1.0),
-                          child: Container(
-                            color: Colors.red,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'スコア',
-                                style: TextStyle(fontSize: 32.0),
-                              ),
-                            ),
-                          ),
-                        )
+                      flex: 1,
+                      child: new TextArea(
+                        padding: 1.0,
+                        backColor: Colors.red,
+                        alignment: Alignment.center,
+                        content: 'スコア',
+                      ),
+//                        child: Padding(
+//                          padding: EdgeInsets.all(1.0),
+//                          child: Container(
+//                            color: Colors.red,
+//                            child: Align(
+//                              alignment: Alignment.center,
+//                              child: Text(
+//                                'スコア',
+//                                style: TextStyle(fontSize: 32.0),
+//                              ),
+//                            ),
+//                          ),
+//                        )
                     ) ,
 
                   ],
@@ -111,19 +125,26 @@ class _GamePageState extends State<GamePage> {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(1.0),
-                        child: Container(
-                          color: Colors.orange,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '場',
-                              style: TextStyle(fontSize: 32.0),
-                            ),
-                          ),
-                        ),
+                      child: new TextArea(
+                        padding: 1.0,
+                        backColor: Colors.orange,
+                        alignment: Alignment.center,
+                        content: '場',
                       ),
+
+//                      child: Padding(
+//                        padding: EdgeInsets.all(1.0),
+//                        child: Container(
+//                          color: Colors.orange,
+//                          child: Align(
+//                            alignment: Alignment.center,
+//                            child: Text(
+//                              '場',
+//                              style: TextStyle(fontSize: 32.0),
+//                            ),
+//                          ),
+//                        ),
+//                      ),
                     ) ,
                     Expanded(
                         flex: 1,
@@ -134,7 +155,7 @@ class _GamePageState extends State<GamePage> {
                             child: Align(
                               alignment: Alignment.center,
                               child: RaisedButton(
-                                onPressed: cardPressed,
+                                  onPressed: cardPressed,
                                   child: Text(
                                     '山札',
                                     style: TextStyle(fontSize: 32.0),)
@@ -157,19 +178,26 @@ class _GamePageState extends State<GamePage> {
                   children: <Widget>[
                     Expanded(
                       flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.all(1.0),
-                        child: Container(
-                          color: Colors.green,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              '自分の手札',
-                              style: TextStyle(fontSize: 32.0),
-                            ),
-                          ),
-                        ),
+                      child: new TextArea(
+                        padding: 1.0,
+                        backColor: Colors.green,
+                        alignment: Alignment.center,
+                        content: '自分の手札',
                       ),
+
+//                      child: Padding(
+//                        padding: EdgeInsets.all(1.0),
+//                        child: Container(
+//                          color: Colors.green,
+//                          child: Align(
+//                            alignment: Alignment.center,
+//                            child: Text(
+//                              '自分の手札',
+//                              style: TextStyle(fontSize: 32.0),
+//                            ),
+//                          ),
+//                        ),
+//                      ),
                     ) ,
                     Expanded(
                         flex: 1,
@@ -180,7 +208,7 @@ class _GamePageState extends State<GamePage> {
                             child: Align(
                               alignment: Alignment.center,
                               child: RaisedButton(
-                                color: Colors.teal,
+                                  color: Colors.teal,
                                   onPressed: geniusPressed,
                                   child: Text(
                                     '天才に聞く',
@@ -210,11 +238,11 @@ class _GamePageState extends State<GamePage> {
 
   void cardPressed(){
     showDialog(
-      context: context,
-      builder: (BuildContext context) => AlertDialog(
-        title: Text('Hit !!'),
-        content: Text('山札から一枚引きました'),
-      )
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Text('Hit !!'),
+          content: Text('山札から一枚引きました'),
+        )
     );
   }
 
