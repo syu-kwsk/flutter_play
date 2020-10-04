@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_app/counter_state.dart';
+import 'package:provider_app/tweet.dart';
 
 void main() => runApp(MyApp());
 
