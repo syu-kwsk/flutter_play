@@ -19,11 +19,6 @@ class _$TimeLineTearOff {
       timeline: timeline,
     );
   }
-
-// ignore: unused_element
-  TimeLineLoading loading() {
-    return const TimeLineLoading();
-  }
 }
 
 /// @nodoc
@@ -32,34 +27,16 @@ const $TimeLine = _$TimeLineTearOff();
 
 /// @nodoc
 mixin _$TimeLine {
-  @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    @required Result loading(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    Result loading(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(TimeLineData value), {
-    @required Result loading(TimeLineLoading value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(TimeLineData value), {
-    Result loading(TimeLineLoading value),
-    @required Result orElse(),
-  });
+  List<Tweet> get timeline;
+
+  $TimeLineCopyWith<TimeLine> get copyWith;
 }
 
 /// @nodoc
 abstract class $TimeLineCopyWith<$Res> {
   factory $TimeLineCopyWith(TimeLine value, $Res Function(TimeLine) then) =
       _$TimeLineCopyWithImpl<$Res>;
+  $Res call({List<Tweet> timeline});
 }
 
 /// @nodoc
@@ -69,13 +46,23 @@ class _$TimeLineCopyWithImpl<$Res> implements $TimeLineCopyWith<$Res> {
   final TimeLine _value;
   // ignore: unused_field
   final $Res Function(TimeLine) _then;
+
+  @override
+  $Res call({
+    Object timeline = freezed,
+  }) {
+    return _then(_value.copyWith(
+      timeline: timeline == freezed ? _value.timeline : timeline as List<Tweet>,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $TimeLineDataCopyWith<$Res> {
+abstract class $TimeLineDataCopyWith<$Res> implements $TimeLineCopyWith<$Res> {
   factory $TimeLineDataCopyWith(
           TimeLineData value, $Res Function(TimeLineData) then) =
       _$TimeLineDataCopyWithImpl<$Res>;
+  @override
   $Res call({List<Tweet> timeline});
 }
 
@@ -129,151 +116,13 @@ class _$TimeLineData implements TimeLineData {
   @override
   $TimeLineDataCopyWith<TimeLineData> get copyWith =>
       _$TimeLineDataCopyWithImpl<TimeLineData>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    @required Result loading(),
-  }) {
-    assert($default != null);
-    assert(loading != null);
-    return $default(timeline);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    Result loading(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if ($default != null) {
-      return $default(timeline);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(TimeLineData value), {
-    @required Result loading(TimeLineLoading value),
-  }) {
-    assert($default != null);
-    assert(loading != null);
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(TimeLineData value), {
-    Result loading(TimeLineLoading value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class TimeLineData implements TimeLine {
   const factory TimeLineData({List<Tweet> timeline}) = _$TimeLineData;
 
+  @override
   List<Tweet> get timeline;
+  @override
   $TimeLineDataCopyWith<TimeLineData> get copyWith;
-}
-
-/// @nodoc
-abstract class $TimeLineLoadingCopyWith<$Res> {
-  factory $TimeLineLoadingCopyWith(
-          TimeLineLoading value, $Res Function(TimeLineLoading) then) =
-      _$TimeLineLoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$TimeLineLoadingCopyWithImpl<$Res> extends _$TimeLineCopyWithImpl<$Res>
-    implements $TimeLineLoadingCopyWith<$Res> {
-  _$TimeLineLoadingCopyWithImpl(
-      TimeLineLoading _value, $Res Function(TimeLineLoading) _then)
-      : super(_value, (v) => _then(v as TimeLineLoading));
-
-  @override
-  TimeLineLoading get _value => super._value as TimeLineLoading;
-}
-
-/// @nodoc
-class _$TimeLineLoading implements TimeLineLoading {
-  const _$TimeLineLoading();
-
-  @override
-  String toString() {
-    return 'TimeLine.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is TimeLineLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    @required Result loading(),
-  }) {
-    assert($default != null);
-    assert(loading != null);
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(List<Tweet> timeline), {
-    Result loading(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(TimeLineData value), {
-    @required Result loading(TimeLineLoading value),
-  }) {
-    assert($default != null);
-    assert(loading != null);
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(TimeLineData value), {
-    Result loading(TimeLineLoading value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TimeLineLoading implements TimeLine {
-  const factory TimeLineLoading() = _$TimeLineLoading;
 }

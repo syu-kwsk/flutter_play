@@ -10,18 +10,17 @@ abstract class TimeLine with _$TimeLine {
   const factory TimeLine({
     @Default(<Tweet>[]) List<Tweet> timeline,
   }) = TimeLineData;
-  const factory TimeLine.loading() = TimeLineLoading;
 }
 
 class TimeLineController extends StateNotifier<TimeLine> with LocatorMixin {
-  TimeLineController() : super(const TimeLine.loading());
+  TimeLineController() : super(const TimeLine());
 
-  void add(String name, String text) {
+  void add() {
     final currentState = state;
     if (currentState is TimeLineData) {
       final timeline = currentState.timeline.toList()
         ..add(
-          Tweet(name: name, text: text),
+          Tweet(name: "syu-kwsk", text: "Hello, World!"),
         );
       state = currentState.copyWith(
         timeline: timeline,
