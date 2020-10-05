@@ -15,12 +15,12 @@ abstract class TimeLine with _$TimeLine {
 class TimeLineController extends StateNotifier<TimeLine> with LocatorMixin {
   TimeLineController() : super(const TimeLine());
 
-  void add() {
+  void add(String text) {
     final currentState = state;
     if (currentState is TimeLineData) {
       final timeline = currentState.timeline.toList()
         ..add(
-          Tweet(name: "syu-kwsk", text: "Hello, World!"),
+          Tweet(name: "syu-kwsk", text: text),
         );
       state = currentState.copyWith(
         timeline: timeline,

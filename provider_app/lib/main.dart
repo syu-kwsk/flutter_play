@@ -9,10 +9,14 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: StateNotifierProvider<TimeLineController, TimeLine>(
-        create: (_) => TimeLineController(),
-        child: HomePage(),
+    return StateNotifierProvider<TimeLineController, TimeLine>(
+      create: (_) => TimeLineController(),
+      child: MaterialApp(
+        initialRoute: '/',
+        routes: <String, WidgetBuilder> {
+          '/': (BuildContext context) =>  HomePage(),
+          '/create_tweet': (BuildContext context) =>  CreateTweetPage(),
+        },
       ),
     );
   }
@@ -27,9 +31,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(child: TL()),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.read<TimeLineController>().add(),
-        label: Text('tweet'),
-        icon: Icon(Icons.add),
+        onPressed: () => Navigator.of(context).pushNamed('/create_tweet'),
+        label: Icon(Icons.add),
       ),
     );
   }
@@ -39,8 +42,7 @@ class TL extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final timeline = context
-        .watch<TimeLine>()
-        .timeline;
+        .select<TimeLine, List<Tweet>>((state) => state.timeline);
     return ListView.builder(
       padding: const EdgeInsets.all(16),
       itemCount: timeline.length,
@@ -53,6 +55,48 @@ class TL extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+}
+
+class CreateTweetPage extends StatelessWidget {
+  final _textEditingController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Create tweet'),
+      ),
+      body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                FlatButton(
+                  onPressed: () {
+                    context.read<TimeLineController>()
+                        .add(_textEditingController.value.text);
+                    _textEditingController.text = '';
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    "do tweet",
+                  ),
+                ),
+                TextField(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  controller: _textEditingController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "new tweet",
+                    hintText: "What are you doing?",
+                  ),
+                  maxLength: 140,
+                ),
+              ]
+          )
+      ),
     );
   }
 }
