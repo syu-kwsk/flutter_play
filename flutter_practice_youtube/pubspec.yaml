@@ -1,5 +1,5 @@
-name: provider_app
-description: practice provider.
+name: flutter_practice_youtube
+description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -24,22 +24,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: "^0.5.0"
-  cloud_firestore: "^0.14.1+2"
-
-  provider: ^4.3.2+2
-  flutter_state_notifier: ^0.6.0
-  freezed_annotation:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.3
+  cupertino_icons: ^1.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner:
-  freezed:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
