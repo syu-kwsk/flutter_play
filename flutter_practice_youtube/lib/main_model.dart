@@ -19,4 +19,15 @@ class MainModel extends ChangeNotifier {
     this.questList = questList;
     notifyListeners();
   }
+
+  void getQuestListRealtime() {
+    final snapshots = FirebaseFirestore.instance.collection('questList').snapshots();
+    snapshots.listen((snapshot) {
+      final docs = snapshot.docs;
+      final questList = docs.map((doc) => Quest(doc)).toList();
+      questList.sort((first, second) => second.createdAt.compareTo(first.createdAt));
+      this.questList = questList;
+      notifyListeners();
+    });
+  }
 }

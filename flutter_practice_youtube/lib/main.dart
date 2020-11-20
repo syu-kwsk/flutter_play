@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       home: ChangeNotifierProvider<MainModel> (
-        create: (_) => MainModel()..getQuestList(),
+        create: (_) => MainModel()..getQuestListRealtime(),
         child: Scaffold(
           appBar: AppBar(
             title: Text('syu-kwsk'),
