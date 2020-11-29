@@ -22,10 +22,17 @@ class AddPage extends StatelessWidget {
                         labelText: '新クエスト',
                         hintText: '例) 激辛の麻婆豆腐'
                     ),
+                    onChanged: (text) {
+                      model.questTitle = text;
+                    },
                   ),
                   RaisedButton(
-                      child: Text('追加'),
-                      onPressed: () {}),
+                    child: Text('追加'),
+                    onPressed: () async {
+                      await model.addQuest();
+                      Navigator.pop(context);
+                    },
+                  ),
                 ],
               ),
             );

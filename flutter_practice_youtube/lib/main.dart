@@ -33,40 +33,21 @@ class MainPage extends StatelessWidget {
           builder: (context, model, child) {
             final questList = model.questList;
             return Center(
-              child: Column(
-                children: [
-                  Text(
-                    model.myText,
-                    style: TextStyle(
-                      fontSize: 30,
-                    ),
+              child: ListView(
+                children:
+                questList.map(
+                      (quest) => ListTile(
+                    title: Text(quest.title),
+                    subtitle: Text(quest.createdAt.toString()),
                   ),
-                  RaisedButton(
-                    child: Text('Button'),
-                    onPressed: () {
-                      // something
-                      model.changeMyText();
-                    },
-                  ),
-                  ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children:
-                    questList.map(
-                          (quest) => ListTile(
-                        title: Text(quest.title),
-                        subtitle: Text(quest.createdAt.toString()),
-                      ),
-                    ).toList(),
-                  ),
-                ],
+                ).toList(),
               ),
             );
           },
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
+          onPressed: () async {
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => AddPage(),
