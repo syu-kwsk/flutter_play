@@ -6,10 +6,13 @@ class AddModel extends ChangeNotifier {
 
   Future addQuest() async {
     final CollectionReference questListRef = FirebaseFirestore.instance.collection('questList');
+    final DateTime now = DateTime.now();
     await questListRef
         .add({
       'title': questTitle,
-      'createdAt': Timestamp.now()
+      'createdAt': Timestamp.fromDate(
+          DateTime(now.year, now.month, now.day, now.hour, now.minute, now.second)
+      )
     })
         .then((value) => print("Quest Added: $value"))
         .catchError((error) => print("Failed to add quest: $error"));
